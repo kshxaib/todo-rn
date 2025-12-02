@@ -5,7 +5,6 @@ export default function Index() {
   return (
     <View style={styles.container}>
       <Text>Khan Shoaib</Text>
-      <Link href="/about">Visit About Screen</Link>
     </View>
   );
 }
