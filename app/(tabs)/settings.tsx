@@ -5,11 +5,12 @@ import { createSettingsStyles } from '@/assets/styles/settings.styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import ProgressStats from '@/components/ProgressStats';
+import Preferences from '@/components/Preferences';
 
 const Settings = () => {
   const [isAutoSync, setIsAutoSync] = useState(false);
   const [isNotificationEnabled, setIsNotificationEnabled] = useState(true);
-  const {colors, isDarkMode, toggleDarkMode} = useTheme();
+  const { colors, isDarkMode, toggleDarkMode } = useTheme();
 
   const settingsStyles = createSettingsStyles(colors);
 
@@ -25,15 +26,15 @@ const Settings = () => {
           </View>
         </View>
 
-        <ProgressStats />
-
-        <ScrollView 
-          style={settingsStyles.scrollView} 
+        <ScrollView
+          style={settingsStyles.scrollView}
           contentContainerStyle={settingsStyles.content}
           showsVerticalScrollIndicator={false}
-          >
+        >
+          <ProgressStats />
 
-          </ScrollView>
+          <Preferences />
+        </ScrollView>
       </SafeAreaView>
     </LinearGradient>
   )
