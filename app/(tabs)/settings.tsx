@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import ProgressStats from '@/components/ProgressStats';
 import Preferences from '@/components/Preferences';
+import DangerZone from '@/components/DangerZone';
 
 const Settings = () => {
   const [isAutoSync, setIsAutoSync] = useState(false);
@@ -34,6 +35,8 @@ const Settings = () => {
           <ProgressStats />
 
           <Preferences />
+
+          <DangerZone />
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
