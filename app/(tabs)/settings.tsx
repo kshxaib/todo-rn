@@ -1,11 +1,41 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import React, { useState } from 'react'
+import useTheme from '@/hooks/useTheme';
+import { createSettingsStyles } from '@/assets/styles/settings.styles';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import ProgressStats from '@/components/ProgressStats';
 
 const Settings = () => {
+  const [isAutoSync, setIsAutoSync] = useState(false);
+  const [isNotificationEnabled, setIsNotificationEnabled] = useState(true);
+  const {colors, isDarkMode, toggleDarkMode} = useTheme();
+
+  const settingsStyles = createSettingsStyles(colors);
+
   return (
-    <View>
-      <Text>Settings</Text>
-    </View>
+    <LinearGradient colors={colors.gradients.background} style={settingsStyles.container}>
+      <SafeAreaView style={settingsStyles.safeArea}>
+        <View style={settingsStyles.header}>
+          <View style={settingsStyles.titleContainer}>
+            <LinearGradient colors={colors.gradients.primary} style={settingsStyles.iconContainer}>
+              <Ionicons name='settings' size={24} color={"#fff"} />
+            </LinearGradient>
+            <Text style={settingsStyles.title}>Settings</Text>
+          </View>
+        </View>
+
+        <ProgressStats />
+
+        <ScrollView 
+          style={settingsStyles.scrollView} 
+          contentContainerStyle={settingsStyles.content}
+          showsVerticalScrollIndicator={false}
+          >
+
+          </ScrollView>
+      </SafeAreaView>
+    </LinearGradient>
   )
 }
 
